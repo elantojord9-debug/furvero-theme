@@ -32,6 +32,15 @@
         "text": "Your dog or cat doesn't care where they leave their fur. Your couch does. Your clothes do. Your car definitely does."
       }
     },
+    "action": {
+      "type": "product-in-action",
+      "settings": {
+        "eyebrow": "PRODUCT IN ACTION",
+        "heading": "Watch it lift the fur away.",
+        "text": "One tool, one motion. Furvero glides over fabric and pulls loose pet hair into its built-in chamber.",
+        "button": "SEE THE BUNDLES"
+      }
+    },
     "benefits": {
       "type": "benefits",
       "settings": {
@@ -49,20 +58,42 @@
       "blocks": {
         "step_roll": {
           "type": "step",
-          "settings": { "title": "Roll", "text": "Roll Furvero back and forth over the fabric surface." }
+          "settings": { "title": "Roll", "text": "Glide Furvero back and forth over the fur-covered fabric." }
         },
-        "step_empty": {
+        "step_collect": {
           "type": "step",
-          "settings": { "title": "Empty", "text": "Open the compartment and empty the collected hair." }
+          "settings": { "title": "Collect", "text": "Loose hair lifts off the surface and gathers inside the chamber." }
         },
-        "step_done": {
+        "step_reuse": {
           "type": "step",
-          "settings": { "title": "Done", "text": "No refills, no batteries — ready for the next cleanup." }
+          "settings": { "title": "Empty & Reuse", "text": "Open the chamber, empty it, and roll again — no refills, no batteries." }
         }
       },
-      "block_order": ["step_roll", "step_empty", "step_done"],
+      "block_order": ["step_roll", "step_collect", "step_reuse"],
       "settings": {
         "heading": "Three simple steps."
+      }
+    },
+    "bundles": {
+      "type": "bundles",
+      "blocks": {
+        "bundle_single": {
+          "type": "bundle",
+          "settings": { "title": "Single", "price": "$19.99", "description": "One Furvero for everyday cleanup.", "product": "furvero-pet-hair-remover" }
+        },
+        "bundle_double": {
+          "type": "bundle",
+          "settings": { "title": "Double", "price": "$29.99", "description": "One for home, one for the car. Save $10 vs. two singles.", "product": "furvero-pet-hair-remover" }
+        },
+        "bundle_triple": {
+          "type": "bundle",
+          "settings": { "title": "Triple", "price": "$39.99", "description": "Full coverage for every room. Save $20 vs. three singles.", "product": "furvero-pet-hair-remover" }
+        }
+      },
+      "block_order": ["bundle_single", "bundle_double", "bundle_triple"],
+      "settings": {
+        "heading": "Choose your bundle.",
+        "text": "Real bundles, honest savings — priced per pack, no fake discounts."
       }
     },
     "use": {
@@ -172,9 +203,11 @@
     "hero",
     "trust",
     "problem",
+    "action",
+    "how",
+    "bundles",
     "benefits",
     "before",
-    "how",
     "use",
     "details",
     "why",
