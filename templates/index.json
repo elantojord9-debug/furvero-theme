@@ -73,6 +73,66 @@
     },
     "faq": {
       "type": "faq",
+      "blocks": {
+        "question_zNmAcf": {
+          "type": "question",
+          "settings": {
+            "question": "Does Furvero need batteries?",
+            "answer": "<p>No. Furvero is a manual tool — no batteries, no charging, no cords.</p>"
+          }
+        },
+        "question_ekQRhG": {
+          "type": "question",
+          "settings": {
+            "question": "What surfaces can I use Furvero on?",
+            "answer": "<p>Furvero is designed for common fabric surfaces such as couches, cushions, clothing and bedding. For delicate materials, test in a hidden area first.</p>"
+          }
+        },
+        "question_KngKVB": {
+          "type": "question",
+          "settings": {
+            "question": "Is Furvero reusable?",
+            "answer": "<p>Yes. Furvero is designed to be used again and again. Detailed cleaning instructions will be published here before launch.</p>"
+          }
+        },
+        "question_JddNeQ": {
+          "type": "question",
+          "settings": {
+            "question": "Does Furvero replace a vacuum?",
+            "answer": "<p>No. It is designed for quick everyday touch-ups and complements your regular cleaning routine.</p>"
+          }
+        },
+        "question_T8r7WF": {
+          "type": "question",
+          "settings": {
+            "question": "How do I clean Furvero?",
+            "answer": "<p>[To be confirmed — cleaning instructions will be published here once our supplier details are finalized.]</p>"
+          }
+        },
+        "question_wQMfTP": {
+          "type": "question",
+          "settings": {
+            "question": "How long does shipping take?",
+            "answer": "<p>[To be confirmed — shipping times will be published here before launch.]</p>"
+          }
+        },
+        "question_hQ8LdW": {
+          "type": "question",
+          "settings": {
+            "question": "What is your return policy?",
+            "answer": "<p>[To be confirmed — our return policy will be published here before launch.]</p>"
+          }
+        }
+      },
+      "block_order": [
+        "question_zNmAcf",
+        "question_ekQRhG",
+        "question_KngKVB",
+        "question_JddNeQ",
+        "question_T8r7WF",
+        "question_wQMfTP",
+        "question_hQ8LdW"
+      ],
       "settings": {
         "heading": "Questions, answered."
       }
