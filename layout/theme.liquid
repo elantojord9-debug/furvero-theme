@@ -10,7 +10,7 @@
   <title>{% if template.name == 'index' %}FURVERO™ | Reusable Pet Hair Remover – Less Fur. More Love.{% elsif page_title %}{{ page_title }}{% if current_tags %} – {{ current_tags | join: ', ' }}{% endif %}{% if current_page != 1 %} – Page {{ current_page }}{% endif %}{% endif %}</title>
   {% if template.name == 'index' %}<meta name="description" content="Furvero™ reusable pet hair remover lifts fur off couches, clothing and bedding — no batteries, no refills, no sticky sheets. From $19.99 with 30-day returns.">{% elsif page_description %}<meta name="description" content="{{ page_description | escape }}">{% endif %}
   {% render 'seo-meta' %}
-  {{ 'furvero.css.liquid' | asset_url | stylesheet_tag }}
+  {{ 'furvero.css' | asset_url | stylesheet_tag }}
   {{ content_for_header }}
   {% if settings.meta_pixel_id != blank %}
     <script>
