@@ -32,7 +32,7 @@
 .trust-badge strong{display:block;font-size:13px;font-weight:800;margin-bottom:3px}
 .trust-badge em{display:block;font-style:normal;font-size:12px;color:#68706b;line-height:1.45}
 .trust-section .trust-badges{margin-top:0}
-@media(max-width:800px){.trust-badges{grid-template-columns:1fr 1fr}}.action-media img{width:100%;border-radius:24px;box-shadow:var(--shadow)}
+@media(max-width:800px){.trust-badges{grid-template-columns:1fr 1fr}}.action-media img,.action-media video{width:100%;border-radius:24px;box-shadow:var(--shadow)}
 .action-points{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin:34px 0}
 .action-points>div{background:#fff;border:1px solid #e8ebe9;border-radius:var(--radius);padding:22px}
 .action-points strong{display:block;margin-bottom:6px;color:var(--forest)}
