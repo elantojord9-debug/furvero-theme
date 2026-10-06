@@ -1,0 +1,59 @@
+{{- 'before / after — HONEST: no real photos yet, so render a clearly-labeled
+    "real photos coming soon" block. Never fake before/after imagery.' -}}
+<section class="fv-section">
+  <div class="fv-container">
+    <div class="fv-center">
+      <span class="fv-eyebrow">{{ section.settings.eyebrow }}</span>
+      <h2 class="fv-h2">{{ section.settings.headline }}</h2>
+    </div>
+
+    <div class="fv-compare">
+      <div class="fv-compare__panel">
+        <span class="fv-compare__tag">BEFORE</span>
+        {%- if section.settings.image_before != blank -%}
+          <img src="{{ section.settings.image_before | image_url: width: 1200 }}"
+               alt="{{ section.settings.alt_before | escape }}" loading="lazy"
+               style="border-radius: var(--radius);">
+        {%- else -%}
+          <!-- PLACEHOLDER: real BEFORE photo required (see SHOT-LIST.md #4). Do not invent or manipulate imagery. -->
+          <div class="fv-placeholder" role="img" aria-label="Before photo placeholder">
+            <span class="fv-placeholder__label">BEFORE PHOTO — PLACEHOLDER</span>
+            <span class="fv-placeholder__hint">Real photo coming soon: same couch with visible pet hair, unedited.</span>
+          </div>
+        {%- endif -%}
+      </div>
+      <div class="fv-compare__panel fv-compare__panel--after">
+        <span class="fv-compare__tag">AFTER</span>
+        {%- if section.settings.image_after != blank -%}
+          <img src="{{ section.settings.image_after | image_url: width: 1200 }}"
+               alt="{{ section.settings.alt_after | escape }}" loading="lazy"
+               style="border-radius: var(--radius);">
+        {%- else -%}
+          <!-- PLACEHOLDER: real AFTER photo required (see SHOT-LIST.md #4). Do not invent or manipulate imagery. -->
+          <div class="fv-placeholder" role="img" aria-label="After photo placeholder">
+            <span class="fv-placeholder__label">AFTER PHOTO — PLACEHOLDER</span>
+            <span class="fv-placeholder__hint">Real photo coming soon: same couch after cleaning with Furvero, unedited.</span>
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+
+    <p class="fv-compare__note">{{ section.settings.note }}</p>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Before / After",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "RESULTS" },
+    { "type": "text", "id": "headline", "label": "Headline", "default": "SEE THE DIFFERENCE." },
+    { "type": "image_picker", "id": "image_before", "label": "BEFORE photo (real, unedited)" },
+    { "type": "text", "id": "alt_before", "label": "BEFORE alt text", "default": "Couch with visible pet hair before cleaning" },
+    { "type": "image_picker", "id": "image_after", "label": "AFTER photo (real, unedited)" },
+    { "type": "text", "id": "alt_after", "label": "AFTER alt text", "default": "Same couch visibly cleaner after using Furvero" },
+    { "type": "text", "id": "note", "label": "Note under the comparison", "default": "Real customer photos coming soon." }
+  ],
+  "presets": [{ "name": "Before / After" }]
+}
+{% endschema %}

@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- SEO -->
+  <title>{{ page_title | default: "Furvero™ Pet Hair Remover | Less Fur. More Love." | escape }}</title>
+  <meta name="description" content="{{ page_description | default: 'Reusable pet hair remover for couches, clothing, bedding and everyday pet cleanup. Discover Furvero.' | escape }}">
+  <link rel="canonical" href="https://furvero.shop/products/furvero-pet-hair-remover">
+  <meta property="og:type" content="product">
+  <meta property="og:site_name" content="Furvero">
+  <meta property="og:title" content="Furvero™ Pet Hair Remover | Less Fur. More Love.">
+  <meta property="og:description" content="Reusable pet hair remover for couches, clothing, bedding and everyday pet cleanup. Discover Furvero.">
+  <meta property="og:url" content="https://furvero.shop/products/furvero-pet-hair-remover">
+  {%- if product.featured_image -%}
+    <meta property="og:image" content="https:{{ product.featured_image | image_url: width: 1200 }}">
+  {%- endif -%}
+  <meta name="twitter:card" content="summary_large_image">
+
+  {{ content_for_header }}
+
+  {{ 'furvero.css' | asset_url | stylesheet_tag }}
+
+  {%- render 'meta-pixel' -%}
+  {%- render 'structured-data' -%}
+</head>
+<body>
+  <a href="#buy" class="fv-skip">Skip to buy</a>
+
+  {{ content_for_layout }}
+
+  <!-- Cart drawer -->
+  <div class="fv-cart-overlay" id="fv-cart-overlay"></div>
+  <aside class="fv-cart-drawer" id="fv-cart-drawer" aria-hidden="true" aria-label="Shopping cart" role="dialog">
+    <div class="fv-cart-drawer__head">
+      <h2>Your cart</h2>
+      <button class="fv-cart-close" id="fv-cart-close" aria-label="Close cart">×</button>
+    </div>
+    <div class="fv-cart-drawer__items" id="fv-cart-items"></div>
+    <div class="fv-cart-drawer__foot">
+      <div class="fv-cart-subtotal"><span>Subtotal</span><span id="fv-cart-subtotal">$0.00</span></div>
+      <p class="fv-cart-note">Shipping and taxes calculated at checkout.</p>
+      <button class="fv-btn fv-btn--primary fv-btn--block" id="fv-checkout-btn">CHECKOUT</button>
+    </div>
+  </aside>
+
+  <!-- Sticky mobile add-to-cart -->
+  <div class="fv-sticky-atc" id="fv-sticky-atc">
+    <div class="fv-sticky-atc__info">
+      <div class="fv-sticky-atc__name">Furvero Pet Hair Remover</div>
+      <div class="fv-sticky-atc__price" data-fv-sticky-price>{{ product.price | money }}</div>
+    </div>
+    <button class="fv-btn fv-btn--primary" data-fv-sticky-add>ADD TO CART</button>
+  </div>
+
+  <script src="{{ 'furvero.js' | asset_url }}" defer></script>
+</body>
+</html>

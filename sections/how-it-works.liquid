@@ -1,0 +1,54 @@
+{{- 'how it works — 3 steps' -}}
+<section class="fv-section fv-section--white" id="how-it-works">
+  <div class="fv-container">
+    <div class="fv-center">
+      <span class="fv-eyebrow">{{ section.settings.eyebrow }}</span>
+      <h2 class="fv-h2">{{ section.settings.headline }}</h2>
+    </div>
+    <div class="fv-steps">
+      {%- for block in section.blocks -%}
+        <div class="fv-step">
+          {%- if block.settings.image != blank -%}
+            <img src="{{ block.settings.image | image_url: width: 800 }}"
+                 alt="{{ block.settings.image_alt | escape }}" loading="lazy"
+                 style="border-radius: var(--radius); margin-bottom: 18px;">
+          {%- endif -%}
+          <div class="fv-step__num" aria-hidden="true">{{ forloop.index | prepend: '0' }}</div>
+          <h3>{{ block.settings.title }}</h3>
+          <p>{{ block.settings.text }}</p>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "How it works",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "HOW IT WORKS" },
+    { "type": "text", "id": "headline", "label": "Headline", "default": "THREE SIMPLE STEPS." }
+  ],
+  "blocks": [
+    {
+      "type": "step", "name": "Step",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Step title", "default": "SWIPE" },
+        { "type": "textarea", "id": "text", "label": "Step text", "default": "Move Furvero across the fabric using short controlled strokes." },
+        { "type": "image_picker", "id": "image", "label": "Step illustration (optional)" },
+        { "type": "text", "id": "image_alt", "label": "Illustration alt text", "default": "" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "How it works",
+      "blocks": [
+        { "type": "step", "settings": { "title": "SWIPE", "text": "Move Furvero across the fabric using short controlled strokes." } },
+        { "type": "step", "settings": { "title": "COLLECT", "text": "Lifted fur gathers as you clean." } },
+        { "type": "step", "settings": { "title": "EMPTY", "text": "Remove the collected fur and keep Furvero ready for the next cleanup." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

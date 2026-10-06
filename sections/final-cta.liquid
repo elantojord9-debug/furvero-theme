@@ -1,0 +1,24 @@
+{{- 'final CTA' -}}
+<section class="fv-section fv-section--green fv-final">
+  <div class="fv-container">
+    <span class="fv-eyebrow">{{ section.settings.eyebrow }}</span>
+    <h2>{{ section.settings.headline_line1 }}<br>{{ section.settings.headline_line2 }}</h2>
+    <p class="fv-lead" style="margin: 0 auto;">{{ section.settings.subhead }}</p>
+    <p class="fv-price">{{ product.price | money }}</p>
+    <a class="fv-btn fv-btn--light" href="#buy">{{ section.settings.cta_text }}</a>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Final CTA",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "READY WHEN YOU ARE" },
+    { "type": "text", "id": "headline_line1", "label": "Headline line 1", "default": "KEEP THE CUDDLES." },
+    { "type": "text", "id": "headline_line2", "label": "Headline line 2", "default": "LOSE THE FUR." },
+    { "type": "text", "id": "subhead", "label": "Subheadline", "default": "Less Fur. More Love." },
+    { "type": "text", "id": "cta_text", "label": "Button text", "default": "GET MY FURVERO" }
+  ],
+  "presets": [{ "name": "Final CTA" }]
+}
+{% endschema %}

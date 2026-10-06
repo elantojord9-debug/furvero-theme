@@ -1,0 +1,1 @@
+[{"name":"FURVERO","settings":[{"content":"Meta Pixel","type":"header"},{"id":"furvero_pixel_id","info":"Numeric Pixel ID from Meta Events Manager. Leave as YOUR_PIXEL_ID until you have a real ID — no events fire without it.","label":"Meta Pixel ID","type":"text"}]}]

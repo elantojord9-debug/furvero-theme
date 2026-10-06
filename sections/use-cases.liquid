@@ -1,0 +1,63 @@
+{{- 'use cases — couch / bedding / clothing / car. No claims on delicate materials.' -}}
+<section class="fv-section fv-section--cream">
+  <div class="fv-container">
+    <div class="fv-center">
+      <span class="fv-eyebrow">{{ section.settings.eyebrow }}</span>
+      <h2 class="fv-h2">{{ section.settings.headline }}</h2>
+    </div>
+    <div class="fv-uses">
+      {%- for block in section.blocks -%}
+        <div class="fv-use">
+          {%- if block.settings.image != blank -%}
+            <img src="{{ block.settings.image | image_url: width: 800 }}"
+                 alt="{{ block.settings.image_alt | escape }}" loading="lazy">
+          {%- else -%}
+            <!-- PLACEHOLDER: real use-case photo (see SHOT-LIST.md #5-8). -->
+            <div class="fv-placeholder" role="img" aria-label="Use case photo placeholder">
+              <span class="fv-placeholder__label">PHOTO — PLACEHOLDER</span>
+              <span class="fv-placeholder__hint">{{ block.settings.title }}: real photo coming soon.</span>
+            </div>
+          {%- endif -%}
+          <div class="fv-use__body">
+            <h3>{{ block.settings.title }}</h3>
+            <p>{{ block.settings.text }}</p>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+    <p class="fv-use__fine">{{ section.settings.fine_print }}</p>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Use cases",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "USE CASES" },
+    { "type": "text", "id": "headline", "label": "Headline", "default": "MADE FOR THE PLACES YOUR PET LOVES." },
+    { "type": "text", "id": "fine_print", "label": "Fine print", "default": "For delicate materials, test on a small hidden area first." }
+  ],
+  "blocks": [
+    {
+      "type": "use", "name": "Use case",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "COUCH" },
+        { "type": "textarea", "id": "text", "label": "Text", "default": "Quick touch-ups between deeper cleans." },
+        { "type": "image_picker", "id": "image", "label": "Photo" },
+        { "type": "text", "id": "image_alt", "label": "Photo alt text", "default": "" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Use cases",
+      "blocks": [
+        { "type": "use", "settings": { "title": "COUCH", "text": "Quick touch-ups between deeper cleans.", "image_alt": "Using Furvero on a couch" } },
+        { "type": "use", "settings": { "title": "BEDDING", "text": "Keep blankets and sheets fur-free.", "image_alt": "Using Furvero on bedding" } },
+        { "type": "use", "settings": { "title": "CLOTHING", "text": "A fast pass before you head out.", "image_alt": "Using Furvero on clothing" } },
+        { "type": "use", "settings": { "title": "CAR", "text": "Seats and upholstery, ready for passengers.", "image_alt": "Using Furvero on car upholstery" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,48 @@
+{{- 'problem — agitate the pet-hair problem, introduce Furvero simply' -}}
+<section class="fv-section fv-section--cream">
+  <div class="fv-container">
+    <div class="fv-center">
+      <span class="fv-eyebrow">{{ section.settings.eyebrow }}</span>
+      <h2 class="fv-h2">{{ section.settings.headline_line1 }}<br>{{ section.settings.headline_line2 }}</h2>
+    </div>
+    <div class="fv-problem__grid">
+      <div>
+        <p class="fv-problem__lines">
+          <span>Your couch.</span>
+          <span>Your clothes.</span>
+          <span>Your bedding.</span>
+          <span>Your car.</span>
+        </p>
+        <p class="fv-lead">{{ section.settings.body }}</p>
+      </div>
+      <div>
+        {%- if section.settings.image != blank -%}
+          <img src="{{ section.settings.image | image_url: width: 1200 }}"
+               alt="{{ section.settings.image_alt | escape }}" loading="lazy"
+               style="border-radius: var(--radius); box-shadow: var(--shadow);">
+        {%- else -%}
+          <!-- PLACEHOLDER: replace with real photography (see SHOT-LIST.md #3). Never ship with placeholder visible. -->
+          <div class="fv-placeholder" role="img" aria-label="Lifestyle photo placeholder">
+            <span class="fv-placeholder__label">LIFESTYLE PHOTO — PLACEHOLDER</span>
+            <span class="fv-placeholder__hint">Couch with visible pet hair, warm natural light. Landscape, min 1600×1000.</span>
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Problem",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "THE PROBLEM" },
+    { "type": "text", "id": "headline_line1", "label": "Headline line 1", "default": "YOU LOVE YOUR PET." },
+    { "type": "text", "id": "headline_line2", "label": "Headline line 2", "default": "YOU DON'T LOVE THE FUR." },
+    { "type": "textarea", "id": "body", "label": "Body", "default": "Pet hair seems to find everything. Furvero gives you a simple reusable way to handle everyday pet-hair cleanup." },
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "text", "id": "image_alt", "label": "Image alt text", "default": "Couch covered with pet hair" }
+  ],
+  "presets": [{ "name": "Problem" }]
+}
+{% endschema %}

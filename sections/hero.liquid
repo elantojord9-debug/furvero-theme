@@ -1,0 +1,64 @@
+{{- 'hero — strong headline, subhead, price, quick benefits, dual CTA, product visual' -}}
+<section class="fv-hero">
+  <div class="fv-container fv-hero__grid">
+    <div>
+      <h1>{{ section.settings.headline_line1 }}<br><span class="fv-accent">{{ section.settings.headline_line2 }}</span></h1>
+      <p class="fv-hero__sub">{{ section.settings.subheadline }}</p>
+
+      <p class="fv-hero__price">
+        {{ product.price | money }}
+        <small>{{ section.settings.price_note }}</small>
+      </p>
+
+      <ul class="fv-checks">
+        {%- for block in section.blocks -%}
+          <li><span class="fv-tick" aria-hidden="true">✓</span>{{ block.settings.text }}</li>
+        {%- endfor -%}
+      </ul>
+
+      <div class="fv-hero__ctas">
+        <a class="fv-btn fv-btn--primary" href="#buy">{{ section.settings.cta_primary }}</a>
+        <a class="fv-btn fv-btn--secondary" href="#how-it-works">{{ section.settings.cta_secondary }}</a>
+      </div>
+    </div>
+
+    <div class="fv-hero__media">
+      {%- if section.settings.image != blank -%}
+        <img src="{{ section.settings.image | image_url: width: 1200 }}"
+             alt="{{ section.settings.image_alt | default: 'Furvero reusable pet hair remover roller being used on a couch with pet hair' | escape }}"
+             width="900" height="900" fetchpriority="high">
+      {%- else -%}
+        <!-- PLACEHOLDER: replace with real product photography (see SHOT-LIST.md #1). Never ship with placeholder visible. -->
+        <div class="fv-placeholder" role="img" aria-label="Product photo placeholder">
+          <span class="fv-placeholder__label">PRODUCT PHOTO — PLACEHOLDER</span>
+          <span class="fv-placeholder__hint">Hero shot: roller in use on a couch with pet hair. Landscape, min 1600×1600.</span>
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero",
+  "settings": [
+    { "type": "text", "id": "headline_line1", "label": "Headline line 1", "default": "PET HAIR EVERYWHERE?" },
+    { "type": "text", "id": "headline_line2", "label": "Headline line 2 (accent color)", "default": "NOT ANYMORE." },
+    { "type": "textarea", "id": "subheadline", "label": "Subheadline", "default": "Remove stubborn pet fur from couches, clothing, bedding and car seats with a simple reusable tool." },
+    { "type": "text", "id": "price_note", "label": "Note next to price", "default": "USD · Free U.S. shipping" },
+    { "type": "text", "id": "cta_primary", "label": "Primary CTA", "default": "GET MY FURVERO" },
+    { "type": "text", "id": "cta_secondary", "label": "Secondary CTA", "default": "SEE HOW IT WORKS" },
+    { "type": "image_picker", "id": "image", "label": "Hero image" },
+    { "type": "text", "id": "image_alt", "label": "Hero image alt text", "default": "Furvero reusable pet hair remover roller being used on a couch with pet hair" }
+  ],
+  "blocks": [
+    { "type": "check", "name": "Quick benefit", "settings": [{ "type": "text", "id": "text", "label": "Benefit", "default": "Reusable" }] }
+  ],
+  "presets": [
+    {
+      "name": "Hero",
+      "blocks": [{ "type": "check", "settings": { "text": "Reusable" } }, { "type": "check", "settings": { "text": "Battery-free" } }, { "type": "check", "settings": { "text": "Easy to use" } }, { "type": "check", "settings": { "text": "Made for everyday pet homes" } }]
+    }
+  ]
+}
+{% endschema %}

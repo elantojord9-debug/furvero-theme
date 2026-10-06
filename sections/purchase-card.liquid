@@ -1,0 +1,70 @@
+{{- 'purchase card — real product data only. NO star ratings (no real reviews exist).' -}}
+<section class="fv-section" id="buy" aria-label="Buy Furvero">
+  <div class="fv-container fv-buy">
+    <div class="fv-buy__media">
+      {%- if section.settings.image != blank -%}
+        <img src="{{ section.settings.image | image_url: width: 1200 }}"
+             alt="{{ section.settings.image_alt | default: 'Furvero Pet Hair Remover Roller product photo' | escape }}"
+             width="900" height="900" loading="lazy">
+      {%- else -%}
+        <!-- PLACEHOLDER: replace with real product photography (see SHOT-LIST.md #2). Never ship with placeholder visible. -->
+        <div class="fv-placeholder" role="img" aria-label="Product photo placeholder">
+          <span class="fv-placeholder__label">PRODUCT PHOTO — PLACEHOLDER</span>
+          <span class="fv-placeholder__hint">Clean product shot on warm cream background. Square, min 1600×1600.</span>
+        </div>
+      {%- endif -%}
+    </div>
+
+    <div class="fv-card" data-fv-purchase
+         data-variant-id="{{ product.selected_or_first_available_variant.id }}"
+         data-product-title="{{ product.title | escape }}">
+      <h2>{{ product.title }}</h2>
+      <p class="fv-card__price" data-fv-price>{{ product.price | money }}</p>
+      <p class="fv-card__price-note">{{ section.settings.price_note }}</p>
+
+      <span class="fv-qty-label" id="fv-qty-label">Quantity</span>
+      <div class="fv-qty" role="group" aria-labelledby="fv-qty-label">
+        <button type="button" data-fv-qty-minus aria-label="Decrease quantity">−</button>
+        <output id="fv-qty" data-fv-qty aria-live="polite">1</output>
+        <button type="button" data-fv-qty-plus aria-label="Increase quantity">+</button>
+      </div>
+
+      <button type="button" class="fv-btn fv-btn--primary fv-btn--block" data-fv-add>
+        {{ section.settings.add_text | default: 'ADD TO CART' }}
+      </button>
+      <button type="button" class="fv-btn fv-btn--secondary fv-btn--block" data-fv-buynow>
+        {{ section.settings.buynow_text | default: 'BUY IT NOW' }}
+      </button>
+
+      <p class="fv-secure">Secure checkout</p>
+      <!-- Show ONLY methods actually enabled in Shopify Payments. Toggle below. -->
+      <div class="fv-paybadges" aria-label="Accepted payment methods">
+        {%- if section.settings.pay_visa -%}<span class="fv-paybadge">VISA</span>{%- endif -%}
+        {%- if section.settings.pay_mc -%}<span class="fv-paybadge">MASTERCARD</span>{%- endif -%}
+        {%- if section.settings.pay_amex -%}<span class="fv-paybadge">AMEX</span>{%- endif -%}
+        {%- if section.settings.pay_apple -%}<span class="fv-paybadge">APPLE&nbsp;PAY</span>{%- endif -%}
+        {%- if section.settings.pay_google -%}<span class="fv-paybadge">GOOGLE&nbsp;PAY</span>{%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Purchase card",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Product image" },
+    { "type": "text", "id": "image_alt", "label": "Image alt text", "default": "Furvero Pet Hair Remover Roller product photo" },
+    { "type": "text", "id": "price_note", "label": "Note under price", "default": "One-time purchase · USD" },
+    { "type": "text", "id": "add_text", "label": "Add to cart button", "default": "ADD TO CART" },
+    { "type": "text", "id": "buynow_text", "label": "Buy it now button", "default": "BUY IT NOW" },
+    { "type": "header", "content": "Payment badges — enable ONLY methods actually active in Shopify Payments" },
+    { "type": "checkbox", "id": "pay_visa", "label": "Visa", "default": true },
+    { "type": "checkbox", "id": "pay_mc", "label": "Mastercard", "default": true },
+    { "type": "checkbox", "id": "pay_amex", "label": "Amex", "default": true },
+    { "type": "checkbox", "id": "pay_apple", "label": "Apple Pay", "default": true },
+    { "type": "checkbox", "id": "pay_google", "label": "Google Pay", "default": true }
+  ],
+  "presets": [{ "name": "Purchase card" }]
+}
+{% endschema %}
