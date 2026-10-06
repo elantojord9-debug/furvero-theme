@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#17352b">
+  {% if settings.favicon %}<link rel="icon" href="{{ settings.favicon | image_url: width: 64 }}">{% endif %}
   <link rel="canonical" href="{{ canonical_url }}">
   <title>{% if page_title %}{{ page_title }}{% if current_tags %} – {{ current_tags | join: ', ' }}{% endif %}{% if current_page != 1 %} – Page {{ current_page }}{% endif %}{% endif %}</title>
   {% if page_description %}<meta name="description" content="{{ page_description | escape }}">{% endif %}
@@ -15,6 +16,7 @@
       !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
       fbq('init','{{ settings.meta_pixel_id | escape }}');
       fbq('track','PageView');
+      {% if template.name == 'product' and product %}fbq('track','ViewContent',{content_ids:['{{ product.selected_or_first_available_variant.id }}'],content_type:'product',value:{{ product.price | divided_by: 100.0 }},currency:'{{ cart.currency.iso_code }}'});{% endif %}
     </script>
   {% endif %}
   {% if settings.ga4_measurement_id != blank %}

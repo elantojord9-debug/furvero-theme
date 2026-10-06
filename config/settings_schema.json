@@ -2,6 +2,7 @@
   {"name":"Brand","settings":[
     {"type":"image_picker","id":"logo","label":"Logo"},
     {"type":"text","id":"logo_alt","label":"Logo alt text","default":"Furvero"},
+    {"type":"image_picker","id":"favicon","label":"Favicon"},
     {"type":"text","id":"meta_pixel_id","label":"Meta Pixel ID"},
     {"type":"text","id":"ga4_measurement_id","label":"GA4 Measurement ID"}
   ]},
