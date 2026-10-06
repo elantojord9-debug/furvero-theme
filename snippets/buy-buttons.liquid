@@ -1,8 +1,46 @@
 <form class="buy-form" data-product-form action="/cart/add" method="post">
-  <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
-  <label class="variant-label" for="Variant-{{ section.id }}">Options</label>
-  <select id="Variant-{{ section.id }}" class="variant-select" name="id" {% if product.has_only_default_variant %}style="display:none"{% endif %}>
-    {% for variant in product.variants %}<option value="{{ variant.id }}" {% if variant == product.selected_or_first_available_variant %}selected{% endif %} {% unless variant.available %}disabled{% endunless %}>{{ variant.title }} — {{ variant.price | money }}</option>{% endfor %}
-  </select>
-  <div class="qty-row"><input class="qty" name="quantity" type="number" min="1" value="1" aria-label="Quantity"><button class="btn btn-primary full" type="submit" {% unless product.selected_or_first_available_variant.available %}disabled{% endunless %}>{% if product.selected_or_first_available_variant.available %}Add to cart{% else %}Sold out{% endif %}</button></div>
+  {% if product.variants.size > 1 %}
+    {% comment %}Bundle cards: real radio inputs (name="id"). Cheapest per-unit variant gets BEST VALUE.{% endcomment %}
+    {% assign best_id = 0 %}
+    {% assign best_ppu = 999999999 %}
+    {% for v in product.variants %}
+      {% assign u = 1 %}{% assign td = v.title | downcase %}
+      {% if td contains '3' %}{% assign u = 3 %}{% elsif td contains '2' %}{% assign u = 2 %}{% endif %}
+      {% assign p = v.price | divided_by: u %}
+      {% if p < best_ppu %}{% assign best_ppu = p %}{% assign best_id = v.id %}{% endif %}
+    {% endfor %}
+    <span class="variant-label" id="Bundle-{{ section.id }}">Choose your bundle</span>
+    <div class="bundle-cards" role="radiogroup" aria-labelledby="Bundle-{{ section.id }}">
+      {% for variant in product.variants %}
+        {% assign units = 1 %}{% assign td = variant.title | downcase %}
+        {% if td contains '3' %}{% assign units = 3 %}{% elsif td contains '2' %}{% assign units = 2 %}{% endif %}
+        {% assign ppu = variant.price | divided_by: units %}
+        {% assign is_checked = false %}
+        {% if variant == product.selected_or_first_available_variant %}{% assign is_checked = true %}{% endif %}
+        <label class="bundle-card{% if is_checked %} is-selected{% endif %}{% unless variant.available %} is-soldout{% endunless %}">
+          <input type="radio" name="id" value="{{ variant.id }}" class="bundle-radio visually-hidden"{% if is_checked %} checked{% endif %}{% unless variant.available %} disabled{% endunless %}>
+          <span class="bundle-main">
+            <span class="bundle-title">{{ variant.title | escape }}</span>
+            {% if variant.id == best_id %}<span class="best-value">BEST VALUE</span>{% endif %}
+            {% unless variant.available %}<span class="bundle-soldout">Sold out</span>{% endunless %}
+          </span>
+          <span class="bundle-pricing">
+            <span class="bundle-price">{{ variant.price | money }}</span>
+            {% if units > 1 %}<span class="bundle-ppu">≈ {{ ppu | money }} per unit</span>{% endif %}
+          </span>
+        </label>
+      {% endfor %}
+    </div>
+    <input type="hidden" name="quantity" value="1">
+    <button class="btn btn-primary full" type="submit"{% unless product.selected_or_first_available_variant.available %} disabled{% endunless %}>{% if product.selected_or_first_available_variant.available %}Add to cart{% else %}Sold out{% endif %}</button>
+  {% else %}
+    <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+    {% unless product.has_only_default_variant %}
+      <label class="variant-label" for="Variant-{{ section.id }}">Options</label>
+      <select id="Variant-{{ section.id }}" class="variant-select" name="id">
+        {% for variant in product.variants %}<option value="{{ variant.id }}"{% if variant == product.selected_or_first_available_variant %} selected{% endif %}{% unless variant.available %} disabled{% endunless %}>{{ variant.title }} — {{ variant.price | money }}</option>{% endfor %}
+      </select>
+    {% endunless %}
+    <div class="qty-row"><input class="qty" name="quantity" type="number" min="1" value="1" aria-label="Quantity"><button class="btn btn-primary full" type="submit"{% unless product.selected_or_first_available_variant.available %} disabled{% endunless %}>{% if product.selected_or_first_available_variant.available %}Add to cart{% else %}Sold out{% endif %}</button></div>
+  {% endif %}
 </form>

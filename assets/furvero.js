@@ -11,5 +11,28 @@
   document.addEventListener('click',e=>{const a=e.target.closest('a[href="/checkout"]');if(!a||!window.fbq)return;const n=document.querySelector('[data-cart-count]');try{fbq('track','InitiateCheckout',{num_items:n?Number(n.textContent)||0:0,currency:(window.Shopify&&window.Shopify.currency&&window.Shopify.currency.active)||'USD'})}catch(_){}},true);
   $$('form[data-product-form]').forEach(f=>{const b=f.querySelector('[type=submit]');if(b)b.dataset.original=b.textContent;f.addEventListener('submit',e=>{e.preventDefault();addToCart(f)})});
   $$('.faq-q').forEach(b=>b.addEventListener('click',()=>b.closest('.faq-item').classList.toggle('open')));
+  /* Product gallery: swap main image from thumbnails */
+  $$('.gallery-thumb').forEach(t=>t.addEventListener('click',()=>{
+    const main=t.closest('.product-media')?.querySelector('.gallery-main');
+    if(!main)return;
+    main.src=t.dataset.gallerySrc;
+    if(t.dataset.galleryAlt)main.alt=t.dataset.galleryAlt;
+    $$('.gallery-thumb').forEach(x=>x.classList.remove('is-active'));
+    t.classList.add('is-active');
+  }));
+  /* Bundle cards: selected state + price sync (CSS :has covers modern browsers; this is the fallback) */
+  $$('.bundle-cards').forEach(group=>{
+    const cards=$$('.bundle-card',group);
+    const priceEl=group.closest('.buy-box')?.querySelector('.price');
+    function sync(){
+      const checked=group.querySelector('.bundle-radio:checked');
+      cards.forEach(c=>c.classList.toggle('is-selected',!!checked&&c.contains(checked)));
+      if(checked&&priceEl){
+        const p=checked.closest('.bundle-card')?.querySelector('.bundle-price');
+        if(p)priceEl.textContent=p.textContent;
+      }
+    }
+    group.addEventListener('change',sync);sync();
+  });
   refreshCart();
 })();
