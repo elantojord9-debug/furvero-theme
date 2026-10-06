@@ -1,4 +1,4 @@
-<form class="buy-form" data-product-form action="/cart/add" method="post">
+{% form 'product', product, class: 'buy-form' %}
   {% if product.variants.size > 1 %}
     {% comment %}Bundle cards: real radio inputs (name="id"). Cheapest per-unit variant gets BEST VALUE.{% endcomment %}
     {% assign best_id = 0 %}
@@ -43,4 +43,5 @@
     {% endunless %}
     <div class="qty-row"><input class="qty" name="quantity" type="number" min="1" value="1" aria-label="Quantity"><button class="btn btn-primary full" type="submit"{% unless product.selected_or_first_available_variant.available %} disabled{% endunless %}>{% if product.selected_or_first_available_variant.available %}Add to cart{% else %}Sold out{% endif %}</button></div>
   {% endif %}
-</form>
+  {{ form | payment_button }}
+{% endform %}
