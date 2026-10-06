@@ -1,0 +1,1 @@
+<div class="price-row"><span class="price">{{ product.selected_or_first_available_variant.price | money }}</span>{% if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}<span class="compare">{{ product.selected_or_first_available_variant.compare_at_price | money }}</span>{% endif %}</div>

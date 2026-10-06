@@ -1,19 +1,2 @@
-{{- 'announcement bar — discreet, no fake urgency' -}}
-<div class="fv-announce" role="note">
-  {{ section.settings.text | escape }}
-</div>
-
-{% schema %}
-{
-  "name": "Announcement bar",
-  "settings": [
-    {
-      "type": "text",
-      "id": "text",
-      "label": "Announcement text",
-      "default": "FREE U.S. SHIPPING · SECURE CHECKOUT · EASY RETURNS"
-    }
-  ],
-  "presets": [{ "name": "Announcement bar" }]
-}
-{% endschema %}
+<div class="announcement">{{ section.settings.text }}</div>
+{% schema %}{"name":"Announcement bar","settings":[{"type":"text","id":"text","label":"Text","default":"Free U.S. shipping on eligible orders"}],"presets":[{"name":"Announcement bar"}]}{% endschema %}

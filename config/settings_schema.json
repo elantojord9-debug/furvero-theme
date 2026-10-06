@@ -1,1 +1,20 @@
-[{"name":"FURVERO","settings":[{"content":"Meta Pixel","type":"header"},{"id":"furvero_pixel_id","info":"Numeric Pixel ID from Meta Events Manager. Leave as YOUR_PIXEL_ID until you have a real ID — no events fire without it.","label":"Meta Pixel ID","type":"text"}]}]
+[
+  {"name":"Brand","settings":[
+    {"type":"image_picker","id":"logo","label":"Logo"},
+    {"type":"text","id":"logo_alt","label":"Logo alt text","default":"Furvero"},
+    {"type":"text","id":"meta_pixel_id","label":"Meta Pixel ID"},
+    {"type":"text","id":"ga4_measurement_id","label":"GA4 Measurement ID"}
+  ]},
+  {"name":"Colors","settings":[
+    {"type":"color","id":"forest","label":"Forest","default":"#17352B"},
+    {"type":"color","id":"cream","label":"Cream","default":"#F5F0E8"},
+    {"type":"color","id":"sage","label":"Sage","default":"#DCE8DF"},
+    {"type":"color","id":"ink","label":"Ink","default":"#151B18"},
+    {"type":"color","id":"white","label":"White","default":"#FFFFFF"}
+  ]},
+  {"name":"Social","settings":[
+    {"type":"url","id":"instagram_url","label":"Instagram URL"},
+    {"type":"url","id":"facebook_url","label":"Facebook URL"},
+    {"type":"url","id":"tiktok_url","label":"TikTok URL"}
+  ]}
+]

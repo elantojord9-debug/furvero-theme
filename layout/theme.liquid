@@ -1,60 +1,33 @@
 <!doctype html>
-<html lang="en">
+<html lang="{{ request.locale.iso_code }}">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-  <!-- SEO -->
-  <title>{{ page_title | default: "Furvero™ Pet Hair Remover | Less Fur. More Love." | escape }}</title>
-  <meta name="description" content="{{ page_description | default: 'Reusable pet hair remover for couches, clothing, bedding and everyday pet cleanup. Discover Furvero.' | escape }}">
-  <link rel="canonical" href="https://furvero.shop/products/furvero-pet-hair-remover">
-  <meta property="og:type" content="product">
-  <meta property="og:site_name" content="Furvero">
-  <meta property="og:title" content="Furvero™ Pet Hair Remover | Less Fur. More Love.">
-  <meta property="og:description" content="Reusable pet hair remover for couches, clothing, bedding and everyday pet cleanup. Discover Furvero.">
-  <meta property="og:url" content="https://furvero.shop/products/furvero-pet-hair-remover">
-  {%- if product.featured_image -%}
-    <meta property="og:image" content="https:{{ product.featured_image | image_url: width: 1200 }}">
-  {%- endif -%}
-  <meta name="twitter:card" content="summary_large_image">
-
-  {{ content_for_header }}
-
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#17352b">
+  <link rel="canonical" href="{{ canonical_url }}">
+  <title>{% if page_title %}{{ page_title }}{% if current_tags %} – {{ current_tags | join: ', ' }}{% endif %}{% if current_page != 1 %} – Page {{ current_page }}{% endif %}{% endif %}</title>
+  {% if page_description %}<meta name="description" content="{{ page_description | escape }}">{% endif %}
+  {% render 'seo-meta' %}
   {{ 'furvero.css' | asset_url | stylesheet_tag }}
-
-  {%- render 'meta-pixel' -%}
-  {%- render 'structured-data' -%}
+  {{ content_for_header }}
+  {% if settings.meta_pixel_id != blank %}
+    <script>
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init','{{ settings.meta_pixel_id | escape }}');
+      fbq('track','PageView');
+    </script>
+  {% endif %}
+  {% if settings.ga4_measurement_id != blank %}
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ settings.ga4_measurement_id | escape }}"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','{{ settings.ga4_measurement_id | escape }}');</script>
+  {% endif %}
 </head>
-<body>
-  <a href="#buy" class="fv-skip">Skip to buy</a>
-
-  {{ content_for_layout }}
-
-  <!-- Cart drawer -->
-  <div class="fv-cart-overlay" id="fv-cart-overlay"></div>
-  <aside class="fv-cart-drawer" id="fv-cart-drawer" aria-hidden="true" aria-label="Shopping cart" role="dialog">
-    <div class="fv-cart-drawer__head">
-      <h2>Your cart</h2>
-      <button class="fv-cart-close" id="fv-cart-close" aria-label="Close cart">×</button>
-    </div>
-    <div class="fv-cart-drawer__items" id="fv-cart-items"></div>
-    <div class="fv-cart-drawer__foot">
-      <div class="fv-cart-subtotal"><span>Subtotal</span><span id="fv-cart-subtotal">$0.00</span></div>
-      <p class="fv-cart-note">Shipping and taxes calculated at checkout.</p>
-      <button class="fv-btn fv-btn--primary fv-btn--block" id="fv-checkout-btn">CHECKOUT</button>
-    </div>
-  </aside>
-
-  <!-- Sticky mobile add-to-cart -->
-  <div class="fv-sticky-atc" id="fv-sticky-atc">
-    <div class="fv-sticky-atc__info">
-      <div class="fv-sticky-atc__name">Furvero Pet Hair Remover</div>
-      <div class="fv-sticky-atc__price" data-fv-sticky-price>{{ product.price | money }}</div>
-    </div>
-    <button class="fv-btn fv-btn--primary" data-fv-sticky-add>ADD TO CART</button>
-  </div>
-
+<body class="template-{{ template.name | handle }}">
+  {% section 'announcement-bar' %}
+  {% section 'header' %}
+  <main id="MainContent" tabindex="-1">{{ content_for_layout }}</main>
+  {% section 'footer' %}
+  {% render 'cart-drawer' %}
   <script src="{{ 'furvero.js' | asset_url }}" defer></script>
 </body>
 </html>

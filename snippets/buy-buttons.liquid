@@ -1,0 +1,8 @@
+<form class="buy-form" data-product-form action="/cart/add" method="post">
+  <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+  <label class="variant-label" for="Variant-{{ section.id }}">Options</label>
+  <select id="Variant-{{ section.id }}" class="variant-select" name="id" {% if product.has_only_default_variant %}style="display:none"{% endif %}>
+    {% for variant in product.variants %}<option value="{{ variant.id }}" {% if variant == product.selected_or_first_available_variant %}selected{% endif %} {% unless variant.available %}disabled{% endunless %}>{{ variant.title }} — {{ variant.price | money }}</option>{% endfor %}
+  </select>
+  <div class="qty-row"><input class="qty" name="quantity" type="number" min="1" value="1" aria-label="Quantity"><button class="btn btn-primary full" type="submit" {% unless product.selected_or_first_available_variant.available %}disabled{% endunless %}>{% if product.selected_or_first_available_variant.available %}Add to cart{% else %}Sold out{% endif %}</button></div>
+</form>
