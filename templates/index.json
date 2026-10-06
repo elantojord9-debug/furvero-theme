@@ -1,1 +1,111 @@
-{"sections":{"hero":{"type":"hero","settings":{}},"problem":{"type":"problem","settings":{}},"benefits":{"type":"benefits","settings":{}},"before":{"type":"before-after","settings":{}},"how":{"type":"how-it-works","settings":{}},"use":{"type":"use-cases","settings":{}},"details":{"type":"product-details","settings":{}},"bundles":{"type":"bundles","settings":{}},"why":{"type":"why-furvero","settings":{}},"faq":{"type":"faq","settings":{}},"promise":{"type":"promise","settings":{}},"cta":{"type":"final-cta","settings":{}}},"order":["hero","problem","benefits","before","how","use","details","bundles","why","faq","promise","cta"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "eyebrow": "LESS FUR. MORE LOVE.",
+        "heading": "Pet Hair Everywhere? Not Anymore.",
+        "text": "Remove stubborn pet fur from couches, clothing, bedding and more with a simple reusable tool.",
+        "product": "test-roller-borrar",
+        "button": "GET MY FURVERO"
+      }
+    },
+    "problem": {
+      "type": "problem",
+      "settings": {
+        "heading": "You Love Your Pet. You Don't Love The Fur.",
+        "text": "Your dog or cat doesn't care where they leave their fur. Your couch does. Your clothes do. Your car definitely does."
+      }
+    },
+    "benefits": {
+      "type": "benefits",
+      "settings": {
+        "heading": "A simpler way to deal with everyday pet fur."
+      }
+    },
+    "before": {
+      "type": "before-after",
+      "settings": {
+        "heading": "One simple swipe. A cleaner-looking surface."
+      }
+    },
+    "how": {
+      "type": "how-it-works",
+      "settings": {
+        "heading": "Three simple steps."
+      }
+    },
+    "use": {
+      "type": "use-cases",
+      "settings": {
+        "heading": "Keep it close to the places fur collects."
+      }
+    },
+    "details": {
+      "type": "product-details",
+      "settings": {
+        "heading": "Simple by design.",
+        "text": "Furvero is designed for quick everyday pet-hair cleanup without batteries or disposable sticky sheets."
+      }
+    },
+    "bundles": {
+      "type": "bundles",
+      "settings": {
+        "heading": "Choose what fits your home.",
+        "text": "Configure real products or Shopify bundle products here. Prices come directly from Shopify."
+      }
+    },
+    "why": {
+      "type": "why-furvero",
+      "settings": {
+        "heading": "Keep the cuddles. Lose the fur.",
+        "text": "Furvero is built around one simple idea: make the little cleanup moments easier."
+      }
+    },
+    "faq": {
+      "type": "faq",
+      "settings": {
+        "heading": "Questions, answered."
+      }
+    },
+    "promise": {
+      "type": "promise",
+      "settings": {
+        "heading": "Less Fur. More Love.",
+        "text": "A small tool for the everyday moments that come with loving a pet."
+      }
+    },
+    "cta": {
+      "type": "final-cta",
+      "settings": {
+        "heading": "Keep The Cuddles. Lose The Fur.",
+        "text": "Bring Furvero into your everyday cleanup routine.",
+        "product": "",
+        "button": "SHOP FURVERO"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "problem",
+    "benefits",
+    "before",
+    "how",
+    "use",
+    "details",
+    "bundles",
+    "why",
+    "faq",
+    "promise",
+    "cta"
+  ]
+}
