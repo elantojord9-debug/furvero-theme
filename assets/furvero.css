@@ -43,8 +43,13 @@
 .ship-line{margin:14px 0 0;font-size:14px;font-weight:600;color:var(--forest)}
 .ship-line.small{font-size:12px;font-weight:400;color:#68706b;margin-top:4px}
 /* Product description */
-.product-description{color:#4c544f}
-.product-description p{margin:0 0 12px}
+.product-description{color:#4c544f;font-size:15px;line-height:1.75}
+.product-description p{margin:0 0 14px}
+.product-description p:first-child{font-size:17px;line-height:1.65;color:#151b18;font-weight:500}
+.product-description strong{color:#17352b}
+.product-description ul{list-style:none;margin:0 0 14px;padding:0}
+.product-description ul li{position:relative;padding-left:28px;margin-bottom:10px}
+.product-description ul li::before{content:"✓";position:absolute;left:0;top:0;color:#17352b;font-weight:700;font-size:16px}
 /* Trust badges (honest claims only) */
 .trust-badges{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:22px}
 .trust-badge{display:flex;gap:12px;align-items:flex-start;background:#f7f8f7;border:1px solid #e8ebe9;border-radius:14px;padding:14px}
