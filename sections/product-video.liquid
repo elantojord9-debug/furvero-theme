@@ -1,0 +1,23 @@
+<section class="section product-video-section" id="watch-it-work">
+  <div class="container">
+    <div class="eyebrow">{{ section.settings.eyebrow }}</div>
+    <h2>{{ section.settings.heading }}</h2>
+    <p class="section-sub">{{ section.settings.sub }}</p>
+    <div class="video-frame">
+      <video autoplay muted loop playsinline preload="metadata" poster="{{ 'furvero-how-long-poster.jpg' | asset_url }}">
+        <source src="{{ 'furvero-how-long.mp4' | asset_url }}" type="video/mp4">
+      </video>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Product video",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "WATCH IT WORK" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Roll it. Empty it. Done." },
+    { "type": "text", "id": "sub", "label": "Subheading", "default": "Watch Furvero lift pet hair off the couch — then open the compartment, empty it, and roll again. No batteries, no sticky sheets." }
+  ],
+  "presets": [{ "name": "Product video" }]
+}
+{% endschema %}

@@ -54,3 +54,5 @@
 .policy-body h2{font-size:22px;margin:28px 0 10px;color:var(--forest)}
 .policy-body p{margin:0 0 14px;color:#3d443f}
 .policy-body a{color:var(--forest);font-weight:700}
+.product-video-section .video-frame{margin-top:28px;border-radius:24px;overflow:hidden;box-shadow:var(--shadow)}
+.product-video-section video{width:100%;display:block;aspect-ratio:16/9;object-fit:cover;background:#000}
