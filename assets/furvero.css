@@ -51,3 +51,6 @@
 .section-slim .section-head{margin-bottom:0}
 @media(max-width:800px){.split{grid-template-columns:1fr;gap:28px}}
 .field{margin-bottom:16px}.field label{display:block;font-weight:700;font-size:14px;margin-bottom:6px}.field input,.field textarea{width:100%;border:1px solid #d8ddda;border-radius:12px;padding:13px;background:#fff}.field textarea{resize:vertical}.form-success{background:#eef5ef;border:1px solid #cfe3d2;border-radius:12px;padding:16px 18px;margin-bottom:20px;color:var(--forest)}
+.policy-body h2{font-size:22px;margin:28px 0 10px;color:var(--forest)}
+.policy-body p{margin:0 0 14px;color:#3d443f}
+.policy-body a{color:var(--forest);font-weight:700}
