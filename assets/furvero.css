@@ -39,8 +39,8 @@
 .action-points p{margin:0;color:#5e6661;font-size:15px}
 .action-cta{text-align:center;margin-top:8px}
 .bundle-price{font-size:34px;font-weight:800;color:var(--forest);margin:6px 0 10px}
-.bundle-card{text-align:center}
-.bundle-card .btn{margin-top:14px}
+.bundle-tile{text-align:center}
+.bundle-tile .btn{margin-top:16px}
 #bundles{scroll-margin-top:80px}
 @media(max-width:800px){.action-points{grid-template-columns:1fr}}
 .split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
