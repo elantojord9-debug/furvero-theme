@@ -13,6 +13,10 @@
       "type": "product-main",
       "settings": {}
     },
+    "watch": {
+      "type": "product-video",
+      "settings": {}
+    },
     "how-it-works": {
       "type": "how-it-works",
       "blocks": {
@@ -103,5 +107,5 @@
       "settings": { "heading": "Questions, answered." }
     }
   },
-  "order": ["main", "how-it-works", "product-details", "faq"]
+  "order": ["main", "watch", "how-it-works", "product-details", "faq"]
 }
