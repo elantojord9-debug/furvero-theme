@@ -15,7 +15,7 @@
         "eyebrow": "LESS FUR. MORE LOVE.",
         "heading": "Pet Hair Everywhere? Not Anymore.",
         "text": "Remove stubborn pet fur from couches, clothing, bedding and more with a simple reusable tool.",
-        "product": "",
+        "product": "furvero-pet-hair-remover",
         "button": "GET MY FURVERO"
       }
     },
@@ -57,13 +57,6 @@
         "text": "Furvero is designed for quick everyday pet-hair cleanup without batteries or disposable sticky sheets."
       }
     },
-    "bundles": {
-      "type": "bundles",
-      "settings": {
-        "heading": "Choose what fits your home.",
-        "text": "Configure real products or Shopify bundle products here. Prices come directly from Shopify."
-      }
-    },
     "why": {
       "type": "why-furvero",
       "settings": {
@@ -92,7 +85,7 @@
           "type": "question",
           "settings": {
             "question": "Is Furvero reusable?",
-            "answer": "<p>Yes. Furvero is designed to be used again and again. Detailed cleaning instructions will be published here before launch.</p>"
+            "answer": "<p>Yes. Roll to collect hair, open the compartment, empty it, and use it again. No refills or sticky sheets required.</p>"
           }
         },
         "question_JddNeQ": {
@@ -106,21 +99,21 @@
           "type": "question",
           "settings": {
             "question": "How do I clean Furvero?",
-            "answer": "<p>[To be confirmed — cleaning instructions will be published here once our supplier details are finalized.]</p>"
+            "answer": "<p>Open the hair-collection compartment, empty the collected hair, and close it. Wipe the roller clean as needed.</p>"
           }
         },
         "question_wQMfTP": {
           "type": "question",
           "settings": {
             "question": "How long does shipping take?",
-            "answer": "<p>[To be confirmed — shipping times will be published here before launch.]</p>"
+            "answer": "<p>Estimated delivery is 5–11 days. A tracking number is provided by email when available. Times are estimates and may vary.</p>"
           }
         },
         "question_hQ8LdW": {
           "type": "question",
           "settings": {
             "question": "What is your return policy?",
-            "answer": "<p>[To be confirmed — our return policy will be published here before launch.]</p>"
+            "answer": "<p>We accept returns within 30 days of delivery. See our Refund Policy for full details.</p>"
           }
         }
       },
@@ -149,7 +142,7 @@
       "settings": {
         "heading": "Keep The Cuddles. Lose The Fur.",
         "text": "Bring Furvero into your everyday cleanup routine.",
-        "product": "",
+        "product": "furvero-pet-hair-remover",
         "button": "SHOP FURVERO"
       }
     }
@@ -162,7 +155,6 @@
     "how",
     "use",
     "details",
-    "bundles",
     "why",
     "faq",
     "promise",

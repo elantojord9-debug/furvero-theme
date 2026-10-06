@@ -4,7 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#17352b">
-  {% if settings.favicon %}<link rel="icon" href="{{ settings.favicon | image_url: width: 64 }}">{% endif %}
+  {% if settings.favicon %}<link rel="icon" href="{{ settings.favicon | image_url: width: 64 }}">{% else %}<link rel="icon" href="{{ 'furvero-favicon.png' | asset_url }}">{% endif %}
+  <link rel="apple-touch-icon" href="{{ 'furvero-icon-180.png' | asset_url }}">
   <link rel="canonical" href="{{ canonical_url }}">
   <title>{% if page_title %}{{ page_title }}{% if current_tags %} – {{ current_tags | join: ', ' }}{% endif %}{% if current_page != 1 %} – Page {{ current_page }}{% endif %}{% endif %}</title>
   {% if page_description %}<meta name="description" content="{{ page_description | escape }}">{% endif %}
