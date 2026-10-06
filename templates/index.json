@@ -14,9 +14,15 @@
       "settings": {
         "eyebrow": "LESS FUR. MORE LOVE.",
         "heading": "Pet Hair Everywhere? Not Anymore.",
-        "text": "Remove stubborn pet fur from couches, clothing, bedding and more with a simple reusable tool.",
+        "text": "The reusable roller that lifts pet fur off couches, clothing, bedding and more — no batteries, no refills, no sticky sheets.",
         "product": "furvero-pet-hair-remover",
         "button": "GET MY FURVERO"
+      }
+    },
+    "trust": {
+      "type": "trust-badges",
+      "settings": {
+        "heading": "Buy with confidence."
       }
     },
     "problem": {
@@ -40,6 +46,21 @@
     },
     "how": {
       "type": "how-it-works",
+      "blocks": {
+        "step_roll": {
+          "type": "step",
+          "settings": { "title": "Roll", "text": "Roll Furvero back and forth over the fabric surface." }
+        },
+        "step_empty": {
+          "type": "step",
+          "settings": { "title": "Empty", "text": "Open the compartment and empty the collected hair." }
+        },
+        "step_done": {
+          "type": "step",
+          "settings": { "title": "Done", "text": "No refills, no batteries — ready for the next cleanup." }
+        }
+      },
+      "block_order": ["step_roll", "step_empty", "step_done"],
       "settings": {
         "heading": "Three simple steps."
       }
@@ -149,6 +170,7 @@
   },
   "order": [
     "hero",
+    "trust",
     "problem",
     "benefits",
     "before",

@@ -34,5 +34,13 @@
     }
     group.addEventListener('change',sync);sync();
   });
+  /* Mobile nav toggle */
+  $$('[data-nav-toggle]').forEach(b=>b.addEventListener('click',()=>{
+    const n=b.closest('.header-inner')?.querySelector('[data-nav]');
+    if(!n)return;
+    const open=n.classList.toggle('open');
+    b.setAttribute('aria-expanded',String(open));
+    b.setAttribute('aria-label',open?'Close menu':'Open menu');
+  }));
   refreshCart();
 })();

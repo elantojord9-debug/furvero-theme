@@ -22,11 +22,11 @@
         },
         "hiw-step-2": {
           "type": "step",
-          "settings": { "title": "Collect", "text": "The tool gathers loose pet hair into its collection compartment." }
+          "settings": { "title": "Empty", "text": "Open the compartment and empty the collected hair." }
         },
         "hiw-step-3": {
           "type": "step",
-          "settings": { "title": "Empty & reuse", "text": "Open the compartment, empty the hair, and use it again — no refills needed." }
+          "settings": { "title": "Done", "text": "No refills, no batteries — ready for the next cleanup." }
         }
       },
       "block_order": ["hiw-step-1", "hiw-step-2", "hiw-step-3"],
