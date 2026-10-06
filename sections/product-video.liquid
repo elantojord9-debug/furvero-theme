@@ -3,10 +3,17 @@
     <div class="eyebrow">{{ section.settings.eyebrow }}</div>
     <h2>{{ section.settings.heading }}</h2>
     <p class="section-sub">{{ section.settings.sub }}</p>
-    <div class="video-frame">
-      <video autoplay muted loop playsinline preload="metadata" poster="{{ 'furvero-cj-video-poster.jpg' | asset_url }}">
-        <source src="{{ 'furvero-cj-video.mp4' | asset_url }}" type="video/mp4">
-      </video>
+    <div class="video-grid">
+      <div class="video-frame">
+        <video autoplay muted loop playsinline preload="metadata" poster="{{ 'furvero-cj-video-poster.jpg' | asset_url }}">
+          <source src="{{ 'furvero-cj-video.mp4' | asset_url }}" type="video/mp4">
+        </video>
+      </div>
+      <div class="video-frame">
+        <video autoplay muted loop playsinline preload="metadata" poster="{{ 'furvero-cj-video2-poster.jpg' | asset_url }}">
+          <source src="{{ 'furvero-cj-video2.mp4' | asset_url }}" type="video/mp4">
+        </video>
+      </div>
     </div>
   </div>
 </section>
